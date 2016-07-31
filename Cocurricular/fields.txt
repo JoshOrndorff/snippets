@@ -1,0 +1,60 @@
+fname -- required
+  Student's first name as it will be printed in the text of the narrative.
+
+lname -- optional
+  Standard field for student's last name. Used only in header, not in body of narrative.
+
+gender -- required
+  Student's preferred gender for pronoun substitutions. Should be one of:
+    m -- male
+    f -- female
+
+course -- required
+  Title of the course the student is in.
+
+overall -- required
+  Students overall grade in the class. Should be one of:
+    EP -- excellent pass (Hint: use sparingly)
+    HP -- high pass
+    P  -- pass
+    LP -- low pass (Hint: use sparingly)
+    NP -- no pass  (Hint: don't use)
+  Appears in header, but also sets the tone for the entire narrative
+  
+strengh -- optional
+  A particular thing the student was good at. Adds a sentence saying the student
+  was good at the particular item. This sentence will usually have to be human
+  edited after automatic generation.
+
+weakness -- optional
+  A particular thing the student was bad at. Adds a sentence saying the student
+  was bad at the particular item. This sentence will usually have to be human
+  edited after automatic generation.
+
+participation -- required
+  Extent to which the student participated in the course. Number 1 - 3
+
+presentation -- required
+  How well the student did on his or her group presentation to the class.
+  Number 1 - 3
+
+prestopic -- optional
+  What topic the student presented on. Could be one of:
+    color
+    motor
+    gyro
+    touch
+    speakerstatus
+    dispbutt
+    wires
+  If the field is one of the previously mentioned items, topic-specific text
+  will be generated. Otherwise a generic sentence will be inserted and will
+  probably have to be human edited.
+
+nextbot -- optional
+  What robot the student built in the final unit. Could be one of:
+    gyro
+    puppy
+    arm
+    color
+    custom
