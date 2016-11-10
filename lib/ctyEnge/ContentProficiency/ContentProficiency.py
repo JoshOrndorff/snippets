@@ -24,13 +24,18 @@ class ContentProficiency(Snippet):
     return choice(self.CL[0])
     
   def token_progression(self):
-    return choice(self.CL[2])
+    # Assumes number of problems presented is correlated with problem success
+    problemsPresented = len(self.subject.find('homework'))
+    if problemsPresented < 2:
+      return choice(self.CL[3])
+    else:
+      return choice(self.CL[2])
   
   def token_filler(self):
     # Only insert filler material if there aren't many student-specific notes.
     notes = self.subject.find('notes[@category="content proficiency"]')
     if len(notes) < 3:
-      return choice(self.CL[4])
+      return choice(self.CL[5])
     return ""
   
   def token_cname(self):

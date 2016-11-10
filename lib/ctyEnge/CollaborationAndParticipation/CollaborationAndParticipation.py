@@ -42,6 +42,11 @@ class CollaborationAndParticipation(Snippet):
     pass
     
   def generate_text(self):
-    self.text = '/opening '
+  
+    if choice([True, False]):
+      self.text = '/opening /listening'
+    else:
+      self.text += '/listening /opening'
     
-    self.text += '/listening '
+    #TODO make an actual snippet to handle the focus circuits.
+    self.text += 'Your group tought the class about [focus circuit here]'
