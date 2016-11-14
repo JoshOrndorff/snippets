@@ -1,8 +1,8 @@
 from os.path import dirname
 from os import sep
 from random import choice
-from ..shared import get_comments
-from .. import Snippet
+from snippets.core.shared import get_comments
+from snippets import Snippet
 
 class Cocurricular(Snippet):
 

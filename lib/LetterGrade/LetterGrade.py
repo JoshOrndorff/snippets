@@ -1,4 +1,4 @@
-from .. import Snippet
+from snippets import Snippet
 
 class LetterGrade(Snippet):
 
