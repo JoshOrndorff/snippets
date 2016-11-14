@@ -10,23 +10,27 @@ In general, the end user will need to write two different pieces of code (a scri
 
 Writing a Script
 ----------------
-The script is generally fairly basic and will closely follow the structure of the working example. This is the place to put output in your desired format.
+The script is generally fairly basic and will closely follow the structure of the working example. (In fact copying the working example is a good place to start.) The most common modification to the basic script is to put the output to use in some interesting way.
 
 Writing a Snippet
 -----------------
-In most cases, the snippets provided in the lib directory will be helpful, but not sufficient on their own and you will need to write your own snippet. All snippets extend the general Snippt class either directly (most common in my own usage) or indirectly in the usual OOP way. When writing a snippet you must do the following.
+In most cases, the snippets provided in the lib directory will be helpful, but not sufficient on their own and you will need to write your own snippet. All snippets extend the general Snippt class either directly (most common in my own usage) or indirectly in the usual OOP way. A good way to start a snippet is to copy the blank template or an example from the lib directory.
+
+All snippets must do the following:
 
 1. Setup the init. Look through an existing one to document this better
 2. Implement a genetate_text method
-2. Implement token_(token name) methods for all tokens that whould be replaced directly in this method.
+3. Implement token_(token name) methods for all tokens that whould be replaced directly in this method.
 
-Supplying Subject Data
-----------------------
+Subject Data
+------------
+Subject data is stored internally in a modified version of a `xml.etree.ElementTree`.
+
 The `snippets.core.input` module provides methods to simplify inputting subject data from both CSV (simple cases) and XML (more complex or nested cases) files.
 
 This document should be expanded to better document both of those methods.
 
-If neither of those methods suites your needs, any manner of getting your data into the ElementWrapper format will do, and the process should maybe be documented, but let's be real, that's pretty far down the priority list.
+If neither of those methods suites your needs, any manner of getting your data into the `ElementWrapper` format will do, but thorough documentation is beyond the scope of this document. See the source of `input.py` for details.
 
 Processing Order
 ================
