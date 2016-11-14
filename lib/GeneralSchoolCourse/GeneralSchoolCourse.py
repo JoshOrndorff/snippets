@@ -5,7 +5,7 @@ from snippets.core.shared import get_comments
 from snippets import Snippet
 from ..LetterGrade import LetterGrade
 
-class Intro2016(Snippet):
+class GeneralSchoolCourse(Snippet):
 
   def __init__(self, subject, ancestorTokens = [], children = {}):
     
@@ -21,10 +21,10 @@ class Intro2016(Snippet):
     commentFile = dirname(__file__) + sep + "comments.csv"
     self.CL = get_comments(commentFile)
     
+    #TODO Why is course even a token. The whole snippet is specifically for this course.
     self.supportedData = ['course',
                           'explanation',
                           'participation',
-                          'homework',
                           'seemefreq',
                           'fname',
                           'lname',
@@ -73,12 +73,10 @@ class Intro2016(Snippet):
     self.text += choice(self.CL[6 - int(self.subject['participation'])])
     
     # Homework
-    self.text += choice(self.CL[9 - int(self.subject['homework'])])
+    # self.text += choice(self.CL[9 - int(self.subject['homework'])])
 
     # See me frequently
     self.text += choice(self.CL[12 - int(self.subject['seemefreq'])])
-    
-    #TODO Taking AP next year.
     
     # Conclusion
     self.text += choice(self.CL[12])
