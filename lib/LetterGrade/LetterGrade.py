@@ -37,7 +37,7 @@ class LetterGrade(Snippet):
     letters = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F']
     
     for i in range(len(cutoffs)):
-      if grade > cutoffs[i]:
+      if grade >= cutoffs[i]:
         self.text = letters[i]
         break
 
