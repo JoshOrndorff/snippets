@@ -65,7 +65,8 @@ class SuggestionsAndRecommendations(Snippet):
     self.text = "/main"
 
     # Specific comment if they had a messy notebook
-    if int(self.subject['notebook[@check="1"]']) < 70 and int(self.subject['notebook[@check="2"]']) < 70:
+    #if int(self.subject['notebook[@check="1"]']) < 70 and int(self.subject['notebook[@check="2"]']) < 70:
+    if self.subject['notebook[@check="2"]'] == 'u' or self.subject['notebook[@check="2"]'] == 'm':
       self.text += " I also encourage you to continue working on your organizational skills and practice writing your work formally."
 
     # Final bit

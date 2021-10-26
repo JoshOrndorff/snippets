@@ -2,7 +2,7 @@ from snippets import Snippet
 from os.path import dirname
 from os import sep
 from random import choice
-from snippets.shared import get_comments
+from snippets.core.shared import get_comments
 
 class OverallPerformance(Snippet):
 
@@ -10,8 +10,7 @@ class OverallPerformance(Snippet):
     
     self.ownTokens = ['adj', 'cname', 'notebook', 'body']
     
-    #TODO there is nicer syntax for python3
-    super(OverallPerformance, self).__init__(subject, ancestorTokens, children)
+    super().__init__(subject, ancestorTokens, children)
     
     commentFile = dirname(__file__) + sep + "comments.csv"
     self.CL = get_comments(commentFile)
@@ -41,7 +40,9 @@ class OverallPerformance(Snippet):
       
     return self.subject['cname']
     
-  def token_notebook(self):
+  def token_notebook_numeric(self):
+    ''' This technique was used with percentage based grades, it is now replaced
+    with metric prefix based grades. '''
     nb1 = int(self.subject['notebook[@check="1"]'])
     nb2 = int(self.subject['notebook[@check="2"]'])
 
@@ -50,6 +51,25 @@ class OverallPerformance(Snippet):
     elif nb1 < 80 and nb2 >= 90:
       options = self.CL[5]
     elif nb1 < 70 and nb2 < 70:
+      options = self.CL[6]
+    else:
+      return ""
+
+    return choice(options)
+  
+  def token_notebook(self):
+    
+    nb1 = self.subject['notebook[@check="1"]']
+    nb2 = self.subject['notebook[@check="2"]']
+    
+    good = ['base', 'k', 'M', 'G']
+    bad  = ['n', 'u', 'm']
+
+    if nb1 in good and nb2 in good:
+      options = self.CL[4]
+    elif nb1 not in good and nb2 in good:
+      options = self.CL[5]
+    elif nb1 in bad and nb2 in bad:
       options = self.CL[6]
     else:
       return ""

@@ -2,7 +2,7 @@ from snippets import Snippet
 from os.path import dirname
 from os import sep
 from random import choice
-from snippets.shared import get_comments
+from snippets.core.shared import get_comments
 
 class CollaborationAndParticipation(Snippet):
 
@@ -46,7 +46,7 @@ class CollaborationAndParticipation(Snippet):
     if choice([True, False]):
       self.text = '/opening /listening'
     else:
-      self.text += '/listening /opening'
+      self.text = '/listening /opening'
     
     #TODO make an actual snippet to handle the focus circuits.
     self.text += 'Your group tought the class about [focus circuit here]'

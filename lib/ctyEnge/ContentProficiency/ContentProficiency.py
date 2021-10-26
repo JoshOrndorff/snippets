@@ -2,7 +2,7 @@ from snippets import Snippet
 from os.path import dirname
 from os import sep
 from random import choice
-from snippets.shared import get_comments
+from snippets.core.shared import get_comments
 
 class ContentProficiency(Snippet):
 
